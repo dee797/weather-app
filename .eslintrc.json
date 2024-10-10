@@ -11,6 +11,11 @@
     },
     "rules": {
         "no-console": "off",
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "eol-last": "off",
+        "indent": "off",
+        "func-names": "off",
+        "prefer-destructuring": "off",
+        "no-multiple-empty-lines": "off"
     }
 }
