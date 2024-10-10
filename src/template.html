@@ -10,10 +10,33 @@
 
     <form id="weather">
         <label for="location">Enter Location</label>
-        <input type="text" name="location" id="location">
+        <input type="text" name="location" id="location" autocomplete="off">
 
         <button type="submit" id="submitBtn" formmethod="post">Submit</button>
     </form>
+
+    <table id="table" display="hidden">
+        <caption id="caption"></caption>
+        <thead>
+            <th>Conditions</th>
+            <th>Current Temperature</th>
+            <th>Feels Like</th>
+            <th>Min Temperature</th>
+            <th>Max Temperature</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="conditions"></td>
+                <td id="currentTemp"></td>
+                <td id="feelsLike"></td>
+                <td id="minTemp"></td>
+                <td id="maxTemp"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <button type="button" id="changeDeg" value="f">Change to Celsius</button>
+        </tfoot>
+    </table>
 
 </body>
 </html>
