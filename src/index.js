@@ -4,6 +4,8 @@ import str from '../storage';
 
 
 async function sendRequest(location) {
+    domHandler.loading.style.visibility = 'visible';
+    document.body.style.visibility = 'hidden';
 
     const query = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/';
     const queryFahr = `${query}${location}?unitGroup=us&key=${str}&contentType=json`;
@@ -19,11 +21,17 @@ async function sendRequest(location) {
         const responseCel = await fetch(`${queryCel}`, { mode: 'cors' });
         const dataFahr = await responseFahr.json();
         const dataCel = await responseCel.json();
+
+        domHandler.loading.style.visibility = 'hidden';
+        document.body.style.visibility = 'visible';
+
         return [dataFahr, dataCel];
 
     } catch (error) {
 
         console.error(error);
+        domHandler.loading.style.visibility = 'hidden';
+        document.body.style.visibility = 'visible';
         alert('Location not found. Please try again.');
     }
 }
@@ -33,6 +41,7 @@ const domHandler = (function () {
 
     const form = document.querySelector('#weather');
     const changeBtn = document.querySelector('#changeDeg');
+    const loading = document.querySelector('.loader');
     let weatherData;
 
     const displayData = (data) => {
@@ -81,5 +90,6 @@ const domHandler = (function () {
         }
     });
 
+    return { loading };
 }());
 
