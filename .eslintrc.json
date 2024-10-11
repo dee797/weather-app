@@ -19,6 +19,7 @@
         "no-multiple-empty-lines": "off",
         "consistent-return": "off",
         "no-alert":"off",
-        "padded-blocks": "off"
+        "padded-blocks": "off",
+        "no-use-before-define": "off"
     }
 }
